@@ -96,10 +96,10 @@ The evaluaiton results should located at
 ``` ./results_transformer/${DATASET}.final.txt ```
 
 
-## Running GNN-XMC on customized datasets
-The X-Transformer framework consists of 9 configurations (3 label-embedding times 3 model-type).
-For simplicity, we show you 1 out-of 9 here, using ```LABEL_EMB=pifa-tfidf``` and ```MODEL_TYPE=bert```.
+## Running BGNN-XML on customized datasets
+The BGNN-XML framework contains 9 configurations (3 label-embedding times 3 model-type).
 
+For simplicity, we show you 1 out-of 9 here, using ```LABEL_EMB=pifa-tfidf``` and ```MODEL_TYPE=bert```.
 We will use Eurlex-4K as an example. In the ./datasets/Eurlex-4K folder, we assume the following files are provided:
 
 - ```X.trn.npz```: the instance TF-IDF feature matrix for the train set. The data type is scipy.sparse.csr_matrix of size (N_trn, D_tfidf), where N_trn is the number of train instances and D_tfidf is the number of features. 
@@ -133,7 +133,6 @@ python -m xbert.preprocess \
     -l ${LABEL_EMB} \
     -x ${LABEL_EMB_INST_PATH}
 ```
-
 - ```DATA_DIR```: ./datasets/Eurlex-4K
 - ```PROC_DATA_DIR```: ./save_models/Eurlex-4K/proc_data
 - ```LABEL_EMB```: pifa-tfidf (you can also try text-emb or pifa-neural if you have fine-tuned instance embeddings)
@@ -167,6 +166,7 @@ python -u -m xbert.preprocess \
     -c ${INDEXER_DIR}/code.npz
 ```
 This should yield the instance-to-cluster matrix ```C.trn.npz``` and ```C.tst.npz``` in the ```PROC_DATA_DIR```.
+
 
 ```bash
 OUTPUT_DIR=save_models/${DATASET}
@@ -285,8 +285,6 @@ python -m xbert.ranker predict \
 ```
 
 This should yield the predicted top-k labels tst.pred.npz specified in ```PRED_NPZ_PATH```.
-
-
 
 ## Acknowledge
 Some codes of this repo are borrowed from the following repos:
