@@ -8,14 +8,12 @@ This is a README for the experimental code of the following paper
 >submitted to TKDE
 
 ## Upates (2021-07-12)
-
-**Notice: This experiment is based on the following hardware configuration
-
+**Notice**: This experiment is based on the following systerm and hardware configuration:
 >* GPU Version: Tesla V100-SXM2-32GB (eight gpus)
 >* CentOS Linux release 7.4.1708 (Core) 
 >* Linux version 3.10.0-693.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) )
 >* Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz with 64 cores.
->* MemTotal:       263546376 kB
+>* MemTotal: 263546376 kB
 
 
 ## Installation
@@ -28,12 +26,12 @@ This is a README for the experimental code of the following paper
 	
 **Notice: the following examples are executed under the ```> (gnn-xmc)``` conda virtual environment
 
-
 ## Reproduce Evaulation Results in the Paper
 We demonstrate how to reproduce the evaluation results in our paper
 by downloading the raw dataset and pretrained models.
 
-### Download Dataset (Eurlex-4K, Wiki10-31K, AmazonCat-13K, Wiki-500K)
+
+### Download Dataset (Eurlex-4K,  Wiki10-31K, AmazonCat-13K, Wiki-500K, Amazon-670K, Amazon-3M)
 Change directory into ./datasets folder, download and unzip each dataset
 
 ```bash
@@ -42,6 +40,8 @@ bash download-data.sh Eurlex-4K
 bash download-data.sh Wiki10-31K
 bash download-data.sh AmazonCat-13K
 bash download-data.sh Wiki-500K
+bash download-data.sh Wiki-670K
+bash download-data.sh Amazon-3M
 cd ../
 ```
 
@@ -50,24 +50,24 @@ Each dataset contains the following files
 - ```train_raw_text.txt, test_raw_text.txt```: each line is the raw text of the instance
 - ```X.trn.npz, X.tst.npz```: instance's embedding matrix (either sparse TF-IDF or fine-tuned dense embedding)  
 - ```Y.trn.npz, Y.tst.npz```: instance-to-label assignment matrix
-  
-### Download Pretrained Models (processed data, Indexing codes, fine-tuned Transformer models)
-Change directory into ./pretrained_models folder, download and unzip models for each dataset
+
+<!-- ### Download Pretrained Models (processed data, Indexing codes, fine-tuned Transformer models)
+Change directory into ./pretrained_models folder, download and unzip models for each dataset -->
 	
-```bash
+<!-- ```bash
 cd ./pretrained_models
 bash download-models.sh Eurlex-4K
 bash download-models.sh Wiki10-31K
 bash download-models.sh AmazonCat-13K
 bash download-models.sh Wiki-500K
 cd ../
-```
-Each folder has the following strcture
+``` -->
+<!-- Each folder has the following strcture
 - ```proc_data```: a sub-folder containing: X.{trn|tst}.{model}.128.pkl, C.{label-emb}.npz, L.{label-emb}.npz
 - ```pifa-tfidf-s0```: a sub-folder containing indexer and matcher
 - ```pifa-neural-s0```: a sub-folder containing indexer and matcher 
 - ```text-emb-s0```: a sub-folder containing indexer and matcher
-
+ -->
 
 ### Evaluate Linear Models
 Given the provided indexing codes (label-to-cluster assignments), train/predict linear models, and evaluate with Precision/Recall@k:
@@ -81,7 +81,6 @@ bash eval_linear.sh ${DATASET} ${VERSION}
 
 The evaluaiton results should located at
 ``` ./results_linear/${DATASET}.${VERSION}.txt ```
-
 
 ### Evaluate Fine-tuned X-Transformer Models
 Given the provided indexing codes (label-to-cluster assignments) and the fine-tuned Transformer models, train/predict ranker of the X-Transformer framework, and evaluate with Precision/Recall@k:
