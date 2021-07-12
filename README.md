@@ -1,27 +1,32 @@
-# Taming Pretrained Transformers for XMC problems
+# Bilateral Graph Neural Networks for XMC problems
 
 This is a README for the experimental code of the following paper
->[Taming Pretrained Transformers for eXtreme Multi-label Text Classification](https://arxiv.org/abs/1905.02331)
+>[BGNN-XML: Bilateral Graph Neural Networks for Extreme Multi-label Text Classification]()
 
->Wei-Cheng Chang, Hsiang-Fu Yu, Kai Zhong, Yiming Yang, Inderjit Dhillon
+>Daoming Zong, Shiliang Sun
 
->KDD 2020
+>submitted to TKDE
 
-## Upates (2021-04-27)
-Latest implementation (faster training with stronger performance) of X-Transformer is available at [PECOS](https://github.com/amzn/pecos), feel free to try it out!
+## Upates (2021-07-12)
+
+**Notice: This experiment is based on the following hardware configuration
+
+>* GPU Version: Tesla V100-SXM2-32GB (eight gpus)
+>* CentOS Linux release 7.4.1708 (Core) 
+>* Linux version 3.10.0-693.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) )
+>* Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz with 64 cores.
+>* MemTotal:       263546376 kB
 
 
 ## Installation
  
 ### Depedencies via Conda Environment
-	
 	> conda env create -f environment.yml
-	> source activate pt1.2_xmlc_transformer
-	> (pt1.2_xmlc_transformer) pip install -e .
-	> (pt1.2_xmlc_transformer) python setup.py install --force
+	> source activate gnn-xmc
+	> (GNN-XMC) pip install -e .
+	> (GNN-XMC) python setup.py install --force
 	
-	
-**Notice: the following examples are executed under the ```> (pt1.2_xmlc_transformer)``` conda virtual environment
+**Notice: the following examples are executed under the ```> (gnn-xmc)``` conda virtual environment
 
 
 ## Reproduce Evaulation Results in the Paper
