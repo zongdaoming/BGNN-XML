@@ -3,7 +3,7 @@
 This is a README for the experimental code of the following paper
 >[BGNN-XML: Bilateral Graph Neural Networks for Extreme Multi-label Text Classification]()
 
->Daoming Zong, Shiliang Sun
+> Daoming Zong, Shiliang Sun
 
 >submitted to TKDE
 
@@ -15,24 +15,25 @@ This is a README for the experimental code of the following paper
 >* Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz with 64 cores.
 >* MemTotal: 263546376 kB
 
-
 ## Installation
  
 ### Depedencies via Conda Environment
-	> conda env create -f environment.yml
-	> source activate gnn-xmc
-	> (GNN-XMC) pip install -e .
-	> (GNN-XMC) python setup.py install --force
-	
-**Notice: the following examples are executed under the ```> (gnn-xmc)``` conda virtual environment
+```shell
+> conda env create -f environment.yml
+> source activate gnn-xmc
+> GNN-XMC git:(main) pip install -e .
+> GNN-XMC git:(main) python setup.py install --force
+```
+**Notice**: the following examples are executed under the ``` GNN-XMC ```  conda virtual environment, set `name` and `prefix` `environment.yml` for your own project.  
 
 ## Reproduce Evaulation Results in the Paper
-We demonstrate how to reproduce the evaluation results in our paper
-by downloading the raw dataset and pretrained models.
+<!-- We demonstrate how to reproduce the evaluation results in our paper by downloading the raw dataset and pretrained models. -->
+
 
 
 ### Download Dataset (Eurlex-4K,  Wiki10-31K, AmazonCat-13K, Wiki-500K, Amazon-670K, Amazon-3M)
-Change directory into ./datasets folder, download and unzip each dataset
+
+Cd into ./datasets folder, download and unzip each dataset
 
 ```bash
 cd ./datasets
@@ -95,7 +96,7 @@ The evaluaiton results should located at
 ``` ./results_transformer/${DATASET}.final.txt ```
 
 
-## Running X-Transformer on customized datasets
+## Running GNN-XMC on customized datasets
 The X-Transformer framework consists of 9 configurations (3 label-embedding times 3 model-type).
 For simplicity, we show you 1 out-of 9 here, using ```LABEL_EMB=pifa-tfidf``` and ```MODEL_TYPE=bert```.
 
@@ -288,8 +289,8 @@ This should yield the predicted top-k labels tst.pred.npz specified in ```PRED_N
 
 
 ## Acknowledge
-
-Some portions of this repo is borrowed from the following repos:
+Some codes of this repo are borrowed from the following repos:
+- [X-Transformer](https://github.com/OctoberChang/X-Transformer)
 - [transformers(v2.2.0)](https://github.com/huggingface/transformers)
 - [liblinear](https://github.com/cjlin1/liblinear)
 - [TRMF](https://github.com/rofuyu/exp-trmf-nips16)
