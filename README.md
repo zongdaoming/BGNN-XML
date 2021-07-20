@@ -46,6 +46,8 @@ bash download-data.sh Amazon-3M
 cd ../
 ```
 
+
+
 Each dataset contains the following files
 - ```label_map.txt```: each line is the raw text of the label
 - ```train_raw_text.txt, test_raw_text.txt```: each line is the raw text of the instance

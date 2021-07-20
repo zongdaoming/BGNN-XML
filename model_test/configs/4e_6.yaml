@@ -1,0 +1,5 @@
+train_dir: /mnt/lustre/zongdaoming/GNN-XMC/model_test/data/in_domain_train.tsv
+epochs: 4
+lr: 0.000004
+saver_train: train_loss_set_4e_6_train.pkl
+saver_test: test_loss_set_4e_6_test.pkl

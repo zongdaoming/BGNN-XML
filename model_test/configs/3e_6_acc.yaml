@@ -1,0 +1,6 @@
+train_dir: /mnt/lustre/zongdaoming/GNN-XMC/model_test/data/in_domain_train.tsv
+epochs: 5
+weight_decay_rate: 0.001
+lr: 0.000003
+saver_train: train_acc_set_3e_6_train.pkl
+saver_test: test_acc_set_3e_6_test.pkl

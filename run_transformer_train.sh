@@ -19,9 +19,9 @@ PROC_DATA_DIR=${OUTPUT_DIR}/proc_data
 MAX_XSEQ_LEN=128
 
 # Nvidia 2080Ti (11Gb), fp32
-PER_DEVICE_TRN_BSZ=8
-PER_DEVICE_VAL_BSZ=16
-GRAD_ACCU_STEPS=4
+# PER_DEVICE_TRN_BSZ=8
+# PER_DEVICE_VAL_BSZ=16
+# GRAD_ACCU_STEPS=4
 
 # Nvidia V100 (16Gb), fp32
 PER_DEVICE_TRN_BSZ=16
@@ -72,7 +72,6 @@ CUDA_VISIBLE_DEVICES=${GPID} python -m torch.distributed.launch \
     --learning_rate ${LEARNING_RATE} \
     --logging_steps ${LOGGING_STEPS} \
     |& tee ${MODEL_DIR}/log.txt
-
 
 # predict
 CUDA_VISIBLE_DEVICES=${GPID} python -u xbert/transformer.py \
